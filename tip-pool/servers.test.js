@@ -10,6 +10,16 @@ describe('Servers test (with setup and tear-down)', function() {
 		expect(Object.keys(allServers).length).toEqual(1);
 		expect(allServers['server' + serverId].serverName).toEqual('Alice');
 	});
+	it('should update #serverTable on updateServerTable()', function() {
+		submitServerInfo();
+		// updateServerTable();
+
+		let curSrvTable = document.querySelectorAll('#serverTable tbody tr td');
+		expect(curSrvTable.length).toEqual(2);
+		expect(curSrvTable[0].innerText).toEqual('Alice');
+		console.log(curSrvTable[1].innerText);
+		expect(curSrvTable[1].innerText).toEqual('$0.00');
+	});
 	afterEach(function() {
 		serverId = 0;
 		serverTbody.innerHTML = '';

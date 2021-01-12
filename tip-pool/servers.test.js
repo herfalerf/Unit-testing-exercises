@@ -11,10 +11,9 @@ describe('Servers test (with setup and tear-down)', function() {
 		expect(allServers['server' + serverId].serverName).toEqual('Alice');
 	});
 	afterEach(function() {
-		let aliceTable = document.querySelector('#serverTable tbody');
-		while (aliceTable.firstChild) {
-			aliceTable.removeChild(aliceTable.firstChild);
-		}
+		serverId = 0;
+		serverTbody.innerHTML = '';
+		allServers = {};
 	});
 });
 // let originalHTML = document.querySelector('#serverTable').innerHTML;

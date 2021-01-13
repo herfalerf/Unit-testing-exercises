@@ -19,6 +19,20 @@ describe('Helper function tests (with setup and tear-down', function() {
 		submitPaymentInfo();
 		expect(sumPaymentTotal('billAmt')).toEqual(200);
 	});
+	it('should calculate the tip percentage on calculateTipPercent()', function() {
+		billAmtInput.value = 100;
+		tipAmtInput.value = 20;
+		expect(calculateTipPercent(billAmt.value, tipAmt.value)).toEqual(20);
+	});
+	it('should add a new cell to a specified row on appendTd()', function() {
+		let newTr = document.createElement('tr');
+		serverTbody.append(newTr);
+		appendTd(newTr, 'test');
+		let testTd = document.querySelector('#serverTable tbody td');
+
+		expect(testTd.innerText).toEqual('test');
+	});
+
 	afterEach(function() {
 		billAmtInput.value = '';
 		tipAmtInput.value = '';

@@ -15,9 +15,10 @@ describe('Servers test (with setup and tear-down)', function() {
 		// updateServerTable();
 
 		let curSrvTable = document.querySelectorAll('#serverTable tbody tr td');
-		expect(curSrvTable.length).toEqual(2);
+		expect(curSrvTable.length).toEqual(3);
 		expect(curSrvTable[0].innerText).toEqual('Alice');
 		expect(curSrvTable[1].innerText).toEqual('$0.00');
+		expect(curSrvTable[2].innerText).toEqual('X');
 	});
 	afterEach(function() {
 		serverId = 0;

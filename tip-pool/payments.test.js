@@ -11,7 +11,7 @@ describe('Payment functions test with setup and teardown', function() {
 		expect(allPayments['payment1'].tipAmt).toEqual('20');
 		expect(allPayments['payment1'].tipPercent).toEqual(10);
 	});
-	it('should payment update #paymentTable on appendPaymentTable()', function() {
+	it('should update #paymentTable on appendPaymentTable()', function() {
 		let testPayment = createCurPayment();
 		allPayments['payment1'] = testPayment;
 
@@ -19,7 +19,7 @@ describe('Payment functions test with setup and teardown', function() {
 
 		let testTdList = document.querySelectorAll('#paymentTable tbody tr td');
 
-		expect(testTdList.length).toEqual(3);
+		expect(testTdList.length).toEqual(4);
 		expect(testTdList[0].innerText).toEqual('$200');
 		expect(testTdList[1].innerText).toEqual('$20');
 		expect(testTdList[2].innerText).toEqual('10%');

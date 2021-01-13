@@ -15,12 +15,12 @@ function submitPaymentInfo(evt) {
 	if (evt) evt.preventDefault(); // when running tests there is no event
 
 	let curPayment = createCurPayment();
+	// console.log(curPayment);
 
 	if (curPayment) {
 		paymentId += 1;
 
 		allPayments['payment' + paymentId] = curPayment;
-		console.log(allPayments);
 
 		appendPaymentTable(curPayment);
 		updateServerTable();
@@ -74,7 +74,6 @@ function updateSummary() {
 	}
 
 	summaryTds[0].innerHTML = '$' + sumPaymentTotal('billAmt');
-	console.log(sumPaymentTotal('billAmt'));
 	summaryTds[1].innerHTML = '$' + sumPaymentTotal('tipAmt');
 	summaryTds[2].innerHTML = Math.round(tipPercentAvg) + '%';
 }
